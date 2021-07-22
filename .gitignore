@@ -1,3 +1,4 @@
 keys.json
 .spyproject
-ticks.db
+trade_ticks.db
+quote_ticks.db
