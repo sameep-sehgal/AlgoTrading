@@ -9,7 +9,7 @@ Alpaca API - converting ticks to candles
 import sqlite3
 import pandas as pd
 
-db = sqlite3.connect('D:/Alpaca/4_streaming/ticks.db')
+db = sqlite3.connect('./trade_ticks.db')
 
 def get_bars(db, ticker, day, period):
     data = pd.read_sql("SELECT * FROM {} WHERE timestamp >= date() - '{} days'".format(ticker, day), con = db)
@@ -21,4 +21,4 @@ def get_bars(db, ticker, day, period):
     df = price_ohlc.merge(vol_ohlc, left_index=True, right_index=True)
     return df
 
-get_bars(db,"TSLA",5, '1min')
+df = get_bars(db,"AAPL",5, '5min')
